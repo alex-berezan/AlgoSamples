@@ -33,3 +33,6 @@ _ReSharper*/
 
 #Ignore Database file
 *.dbmdl
+
+#nuget packages
+packages/
