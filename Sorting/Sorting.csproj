@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="BubbleSort\Facts.cs" />
     <Compile Include="BubbleSort\BubbleSorter.cs" />
+    <Compile Include="MergeSort2\Facts.cs" />
+    <Compile Include="MergeSort2\MemoryLoyalMergeSort.cs" />
     <Compile Include="MergeSort\MergeSorter.cs" />
     <Compile Include="MergeSort\Facts.cs" />
     <Compile Include="Helpers\ArrayExtensions.cs" />
