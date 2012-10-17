@@ -13,7 +13,7 @@ namespace Sorting.MergeSort
 				return new int[] { };
 
 			if (array.Length == 1)
-				return new List<int>(array).ToArray();
+				return new int[] { array[0] };
 
 			if (array.Length == 2)
 			{
