@@ -50,6 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BubbleSort\Facts.cs" />
+    <Compile Include="BubbleSort\BubbleSorter.cs" />
+    <Compile Include="Helpers\ArrayExtensions.cs" />
     <Compile Include="InsertSort\Facts.cs" />
     <Compile Include="InsertSort\InsertSorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
