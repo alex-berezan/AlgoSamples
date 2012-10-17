@@ -40,13 +40,24 @@ namespace Sorting.BubbleSort
 		}
 
 		[Fact]
+		public void Returns_Array_Sorted_By_Asc_For_Array_Where_All_Elements_Are_The_Same()
+		{
+			var sorter = new BubbleSorter();
+
+			int[] actual = sorter.Sort(new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+
+			actual.Should().BeEquivalentTo(new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+			actual.Should().BeInAscendingOrder();
+		}
+
+		[Fact]
 		public void Returns_Array_Sorted_By_Asc_For_Input_With_Duplicates()
 		{
 			var sorter = new BubbleSorter();
 
-			int[] actual = sorter.Sort(new int[] { 11, 1, 5, 3, 8, 2, 11 });
+			int[] actual = sorter.Sort(new int[] { 11, 1, 5, 8, 8, 8, 8, 8, 3, 8, 2, 8, 8, 11, 8, });
 
-			actual.Should().BeEquivalentTo(new int[] { 1, 2, 3, 5, 8, 11, 11 });
+			actual.Should().BeEquivalentTo(new int[] { 1, 2, 3, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 11, 11 });
 			actual.Should().BeInAscendingOrder();
 		}
 
