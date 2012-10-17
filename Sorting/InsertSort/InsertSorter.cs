@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sorting.Helpers;
 
 namespace Sorting.InsertSort
 {
@@ -25,7 +26,7 @@ namespace Sorting.InsertSort
 			for (int currentIndex = 0; currentIndex < array.Length - 1; currentIndex++)
 			{
 				var minValueIndex = GetMinValueIndex(array, startIndex: currentIndex);
-				SwapArrayValues(array, currentIndex, minValueIndex);
+				array.SwapValues(currentIndex,minValueIndex);
 			}
 		}
 
@@ -41,13 +42,6 @@ namespace Sorting.InsertSort
 				}
 			}
 			return minIndex;
-		}
-
-		private static void SwapArrayValues(int[] array, int index1, int index2)
-		{
-			int temp = array[index1];
-			array[index1] = array[index2];
-			array[index2] = temp;
 		}
 	}
 }
