@@ -47,6 +47,8 @@ namespace Benchmark
 
 		private static void BenchPerformance()
 		{
+			// last result: 00m 38s for 40000 itearations with 25000 array
+			// for approach with paralleling sorting for arrays longer than 2048
 			int iterationsCount = 40000;
 			int arraySize = 25000;
 

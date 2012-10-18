@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Sorting.Helpers;
 
 namespace Sorting.MergeSort2
 {
 	public class MemoryLoyalMergeSort
 	{
+		private static readonly TaskFactory _taskFactory = new TaskFactory();
+
 		private struct ArrayRef
 		{
 			private readonly int[] _array;
@@ -17,8 +21,8 @@ namespace Sorting.MergeSort2
 			public int this[int index]
 			{
 				get { return _array[AbsoluteStartIndex + index]; }
+				set { _array[AbsoluteStartIndex + index] = value; }
 			}
-
 
 			public ArrayRef(int[] array, int startIndex, int length)
 				: this()
@@ -62,8 +66,18 @@ namespace Sorting.MergeSort2
 			ArrayRef left = new ArrayRef(array, arrayRef.AbsoluteStartIndex, half);
 			ArrayRef right = new ArrayRef(array, arrayRef.AbsoluteStartIndex + half, arrayRef.Length - half);
 
-			Sort(array, left);
-			Sort(array, right);
+			bool shouldSortInParallel = right.Length > 2048;
+			if (shouldSortInParallel)
+			{
+				Task sortRightTask = _taskFactory.StartNew(() => Sort(array, right));
+				Sort(array, left);
+				Task.WaitAll(sortRightTask);
+			}
+			else
+			{
+				Sort(array, right);
+				Sort(array, left);
+			}
 
 			MergeSorted(array, left, right);
 		}
