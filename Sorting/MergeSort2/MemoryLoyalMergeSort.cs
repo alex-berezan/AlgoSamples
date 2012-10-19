@@ -45,11 +45,11 @@ namespace Sorting.MergeSort2
 			if (array == null || array.Length == 0)
 				return new int[] { };
 
-			Sort(array, new ArrayRef(array, 0, array.Length));
+			Sort(array, new ArrayRef(array, 0, array.Length), new int[array.Length]);
 			return array;
 		}
 
-		private void Sort(int[] array, ArrayRef arrayRef)
+		private void Sort(int[] array, ArrayRef arrayRef, int[] buffer)
 		{
 			if (arrayRef.Length == 1)
 				return;
@@ -69,22 +69,22 @@ namespace Sorting.MergeSort2
 			bool shouldSortInParallel = right.Length > 2048;
 			if (shouldSortInParallel)
 			{
-				Task sortRightTask = _taskFactory.StartNew(() => Sort(array, right));
-				Sort(array, left);
+				Task sortRightTask = _taskFactory.StartNew(() => Sort(array, right, buffer));
+				Sort(array, left, buffer);
 				Task.WaitAll(sortRightTask);
 			}
 			else
 			{
-				Sort(array, right);
-				Sort(array, left);
+				Sort(array, right, buffer);
+				Sort(array, left, buffer);
 			}
 
-			MergeSorted(array, left, right);
+			MergeSorted(array, left, right, buffer);
 		}
 
-		private void MergeSorted(int[] array, ArrayRef left, ArrayRef right)
+		private void MergeSorted(int[] array, ArrayRef left, ArrayRef right, int[] buffer)
 		{
-			int[] merged = new int[left.Length + right.Length];
+			ArrayRef merged = new ArrayRef(buffer, left.AbsoluteStartIndex, left.Length + right.Length);
 
 			int leftCurrent = 0;
 			int rightCurrent = 0;
@@ -107,15 +107,10 @@ namespace Sorting.MergeSort2
 			}
 
 			int index = 0;
-			for (int i = left.AbsoluteStartIndex; i < left.AbsoluteEndIndex; i++, index++)
+			for (int i = left.AbsoluteStartIndex; i < right.AbsoluteEndIndex; i++, index++)
 			{
 				array[i] = merged[index];
-			}
-
-			for (int i = right.AbsoluteStartIndex; i < right.AbsoluteEndIndex; i++, index++)
-			{
-				array[i] = merged[index];
-			}
+			} 
 		}
 	}
 }
