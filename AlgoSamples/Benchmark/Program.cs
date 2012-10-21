@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Sorting.MergeSort;
+using Sorting.QuickSort;
 
 namespace Benchmark
 {
@@ -43,6 +44,15 @@ namespace Benchmark
 				array.Should().BeInAscendingOrder();
 			});
 			Console.WriteLine("Elapsed2: {0}", elapsed2);
+
+			var quickSorter = new QuickSorter();
+			var quickSortElapsed = DoTest(iterationsCount, () =>
+			{
+				var array = GenerateTestArray(arraySize);
+				array = quickSorter.Sort(array);
+				array.Should().BeInAscendingOrder();
+			});
+			Console.WriteLine("QuickSortElapsed: {0}", quickSortElapsed);
 		}
 
 		private static void BenchPerformance()
