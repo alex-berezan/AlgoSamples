@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{446CF9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{5BC60E4D-1AF5-46E1-8C69-5EDBA182DBB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmitDuplicatesInTextFile", "OmitDuplicatesInTextFile\OmitDuplicatesInTextFile.csproj", "{E1E139AF-616C-4DB3-974A-C5B44ADDCF72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{5BC60E4D-1AF5-46E1-8C69-5EDBA182DBB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BC60E4D-1AF5-46E1-8C69-5EDBA182DBB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BC60E4D-1AF5-46E1-8C69-5EDBA182DBB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1E139AF-616C-4DB3-974A-C5B44ADDCF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1E139AF-616C-4DB3-974A-C5B44ADDCF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1E139AF-616C-4DB3-974A-C5B44ADDCF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1E139AF-616C-4DB3-974A-C5B44ADDCF72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
