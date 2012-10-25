@@ -48,10 +48,11 @@ namespace Sorting.QuickSort
 			int max = int.MinValue;
 			int min = int.MaxValue;
 
-			foreach (int a in array)
+			for (int i = array.Length - 1; i >= 0; i--)
 			{
-				max = Math.Max(max, a);
-				min = Math.Min(min, a);
+
+				max = Math.Max(max, array[i]);
+				min = Math.Min(min, array[i]);
 			}
 
 			pivot = 1d * min / 2 + 1d * max / 2;

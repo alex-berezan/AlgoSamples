@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Sorting.InPlaceQuickSort;
 using Sorting.MergeSort;
 using Sorting.QuickSort;
 
@@ -53,13 +54,22 @@ namespace Benchmark
 				array.Should().BeInAscendingOrder();
 			});
 			Console.WriteLine("QuickSortElapsed: {0}", quickSortElapsed);
+
+			var inPlaceQuickSorter = new InPlaceQuickSorter();
+			var inPlaceQuickSortElapsed = DoTest(iterationsCount, () =>
+			{
+				var array = GenerateTestArray(arraySize);
+				array = inPlaceQuickSorter.Sort(array);
+				array.Should().BeInAscendingOrder();
+			});
+			Console.WriteLine("InPlaceQuickSortElapsed: {0}", inPlaceQuickSortElapsed);
 		}
 
 		private static void BenchPerformance()
 		{
 			// last result: 00m 38s for 40000 itearations with 25000 array
 			// for approach with paralleling sorting for arrays longer than 2048
-			int iterationsCount = 40000;
+			int iterationsCount = 4000;
 			int arraySize = 25000;
 
 			var array = GenerateTestArray(arraySize);
@@ -68,9 +78,17 @@ namespace Benchmark
 			//var elapsed1 = DoTest(iterationsCount, () => mergeSorter.Sort(array));
 			//Console.WriteLine("Elapsed1: {0}", elapsed1);
 
-			var mergeSorter2 = new Sorting.MergeSort2.MemoryLoyalMergeSort();
-			var elapsed2 = DoTest(iterationsCount, () => mergeSorter2.Sort(array));
-			Console.WriteLine("Elapsed2: {0}", elapsed2);
+			//var mergeSorter2 = new Sorting.MergeSort2.MemoryLoyalMergeSort();
+			//var elapsed2 = DoTest(iterationsCount, () => mergeSorter2.Sort(array));
+			//Console.WriteLine("Elapsed2: {0}", elapsed2);
+
+			//var quickSorter = new QuickSorter();
+			//var quickSorterElapsed = DoTest(iterationsCount, () => quickSorter.Sort(array));
+			//Console.WriteLine("Quick Sort Elapsed: {0}", quickSorterElapsed);
+
+			var inPlaceQuickSorter = new InPlaceQuickSorter();
+			var inPlaceQuickSorterElapsed = DoTest(iterationsCount, () => inPlaceQuickSorter.Sort(array));
+			Console.WriteLine("InPlace Quick Sort Elapsed: {0}", inPlaceQuickSorterElapsed);
 		}
 
 		private static int[] GenerateTestArray(int arraySize)

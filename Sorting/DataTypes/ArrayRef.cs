@@ -3,11 +3,12 @@ using System.Linq;
 
 namespace Sorting.DataTypes
 {
-	internal struct ArrayRef
+	public struct ArrayRef
 	{
 		private readonly int[] _array;
-		public int AbsoluteStartIndex { get; private set; }
-		public int Length { get; private set; }
+		public readonly int AbsoluteStartIndex;
+		public readonly int Length;
+
 		public int AbsoluteEndIndex { get { return AbsoluteStartIndex + Length; } }
 		public int this[int index]
 		{
@@ -23,11 +24,23 @@ namespace Sorting.DataTypes
 			Length = length;
 		}
 
+		public void FlushTo(int[] array)
+		{
+			for (int i = Length - 1; i >= 0; i--)
+			{
+				array[i] = this[i];
+			}
+		}
+
+		public ArrayRef SubArray(int startIndex, int length)
+		{
+			return new ArrayRef(_array, AbsoluteStartIndex + startIndex, length);
+		}
+
 		public override string ToString()
 		{
-			return String.Format("Start: {0}, Length: {1} | {2}",
-			                     AbsoluteStartIndex, Length, String.Join(",",
-			                                                             _array.Skip(AbsoluteStartIndex).Take(Length).Select(_ => _.ToString())));
+			string content = string.Join(",", _array.Skip(AbsoluteStartIndex).Take(Length).Select(_ => _.ToString()));
+			return String.Format("Start: {0}, Length: {1} | {2}", AbsoluteStartIndex, Length, content);
 		}
 	}
 }
