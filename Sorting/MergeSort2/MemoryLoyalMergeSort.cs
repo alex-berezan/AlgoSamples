@@ -20,7 +20,7 @@ namespace Sorting.MergeSort2
 			return array;
 		}
 
-		private void Sort(int[] array, ArrayRef arrayRef, int[] buffer)
+		private static void Sort(int[] array, ArrayRef arrayRef, int[] buffer)
 		{
 			if (arrayRef.Length == 1)
 				return;
@@ -53,7 +53,7 @@ namespace Sorting.MergeSort2
 			MergeSorted(array, left, right, buffer);
 		}
 
-		private void MergeSorted(int[] array, ArrayRef left, ArrayRef right, int[] buffer)
+		private static void MergeSorted(int[] array, ArrayRef left, ArrayRef right, int[] buffer)
 		{
 			ArrayRef merged = new ArrayRef(buffer, left.AbsoluteStartIndex, left.Length + right.Length);
 
@@ -77,11 +77,11 @@ namespace Sorting.MergeSort2
 				}
 			}
 
-			int index = 0;
-			for (int i = left.AbsoluteStartIndex; i < right.AbsoluteEndIndex; i++, index++)
+			int index = merged.Length - 1;
+			for (int i = right.AbsoluteEndIndex - 1; i >= left.AbsoluteStartIndex; i--, index--)
 			{
 				array[i] = merged[index];
-			} 
+			}
 		}
 	}
 }
