@@ -1,9 +1,9 @@
 ﻿namespace Trees.ResolveParentsDuplicates
 {
-	public class TreeNode
+	public class TreeNode<TData>
 	{
-		public string Data { get; set; }
-		public TreeNode Left { get; set; }
-		public TreeNode Right { get; set; }
+		public TData Data { get; set; }
+		public TreeNode<TData> Left { get; set; }
+		public TreeNode<TData> Right { get; set; }
 	}
 }

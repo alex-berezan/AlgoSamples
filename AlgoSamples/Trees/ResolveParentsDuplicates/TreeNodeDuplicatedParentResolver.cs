@@ -9,21 +9,21 @@ namespace Trees.ResolveParentsDuplicates
 
 		internal sealed class TreeNodeFamily
 		{
-			public TreeNode Child;
-			public Dictionary<TreeNode, bool> Parents;
+			public TreeNode<string> Child;
+			public Dictionary<TreeNode<string>, bool> Parents;
 		}
 
 		#endregion
 
-		public TreeNode ResolveDuplicateParents(TreeNode root)
+		public TreeNode<string> ResolveDuplicateParents(TreeNode<string> root)
 		{
 			IEnumerable<TreeNodeFamily> treeNodeFamilies = GetMultiParentedNodes(root);
 			foreach (TreeNodeFamily treeNodeFamily in treeNodeFamilies)
 			{
-				foreach (KeyValuePair<TreeNode, bool> parentLink in treeNodeFamily.Parents.Skip(1))
+				foreach (KeyValuePair<TreeNode<string>, bool> parentLink in treeNodeFamily.Parents.Skip(1))
 				{
 					bool isLeft = parentLink.Value;
-					TreeNode parent = parentLink.Key;
+					TreeNode<string> parent = parentLink.Key;
 
 					if (isLeft) parent.Left = CloneTree(parent.Left);
 					else parent.Right = CloneTree(parent.Left);
@@ -33,11 +33,11 @@ namespace Trees.ResolveParentsDuplicates
 			return root;
 		}
 
-		private static TreeNode CloneTree(TreeNode root)
+		private static TreeNode<string> CloneTree(TreeNode<string> root)
 		{
 			if (root == null)
 				return null;
-			return new TreeNode
+			return new TreeNode<string>
 			{
 				Data = root.Data,
 				Left = CloneTree(root.Left),
@@ -45,9 +45,9 @@ namespace Trees.ResolveParentsDuplicates
 			};
 		}
 
-		private static IEnumerable<TreeNodeFamily> GetMultiParentedNodes(TreeNode root)
+		private static IEnumerable<TreeNodeFamily> GetMultiParentedNodes(TreeNode<string> root)
 		{
-			var linksDictionary = new Dictionary<TreeNode, TreeNodeFamily>();
+			var linksDictionary = new Dictionary<TreeNode<string>, TreeNodeFamily>();
 			FillLinks(root, linksDictionary);
 
 			return linksDictionary.Values
@@ -55,13 +55,13 @@ namespace Trees.ResolveParentsDuplicates
 				.ToList();
 		}
 
-		private static void FillLinks(TreeNode root, Dictionary<TreeNode, TreeNodeFamily> linksDictionary)
+		private static void FillLinks(TreeNode<string> root, Dictionary<TreeNode<string>, TreeNodeFamily> linksDictionary)
 		{
 			if (root.Left != null)
 			{
 				if (!linksDictionary.ContainsKey(root.Left))
 				{
-					linksDictionary.Add(root.Left, new TreeNodeFamily { Child = root.Left, Parents = new Dictionary<TreeNode, bool>() });
+					linksDictionary.Add(root.Left, new TreeNodeFamily { Child = root.Left, Parents = new Dictionary<TreeNode<string>, bool>() });
 				}
 				linksDictionary[root.Left].Parents.Add(root, true);
 				FillLinks(root.Left, linksDictionary);
@@ -71,7 +71,7 @@ namespace Trees.ResolveParentsDuplicates
 			{
 				if (!linksDictionary.ContainsKey(root.Right))
 				{
-					linksDictionary.Add(root.Right, new TreeNodeFamily { Child = root.Right, Parents = new Dictionary<TreeNode, bool>() });
+					linksDictionary.Add(root.Right, new TreeNodeFamily { Child = root.Right, Parents = new Dictionary<TreeNode<string>, bool>() });
 				}
 				linksDictionary[root.Right].Parents.Add(root, false);
 				FillLinks(root.Right, linksDictionary);
