@@ -1,4 +1,4 @@
-﻿namespace Trees.ResolveParentsDuplicates
+﻿namespace Trees
 {
 	public class TreeNode<TData>
 	{

@@ -4,7 +4,7 @@ namespace Trees.FindKthSmallestItem
 {
 	public class FindKthSmallestItemImpl
 	{
-		public int Find(TreeNode<int> root, int k)
+		public int  Find(TreeNode<int> root, int k)
 		{
 			throw new System.NotImplementedException();
 		}

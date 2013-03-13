@@ -62,9 +62,9 @@
     <Compile Include="FindKthSmallestItem\FindKthSmallestItemImpl.cs" />
     <Compile Include="FindKthSmallestItem\FindKthSmallestItemImplFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResolveParentsDuplicates\TreeNode.cs" />
     <Compile Include="ResolveParentsDuplicates\TreeNodeDuplicatedParentResolver.cs" />
     <Compile Include="ResolveParentsDuplicates\TreeNodeDuplicatedParentResolverFacts.cs" />
+    <Compile Include="TreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
