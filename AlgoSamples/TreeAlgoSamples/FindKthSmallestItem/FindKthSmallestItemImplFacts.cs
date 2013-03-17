@@ -1,10 +1,11 @@
 ﻿using System;
 using FluentAssertions;
-using Trees.ResolveParentsDuplicates;
+using TreeAlgoSamples.ResolveParentsDuplicates;
+using Trees;
 using Xunit;
 using Xunit.Extensions;
 
-namespace Trees.FindKthSmallestItem
+namespace TreeAlgoSamples.FindKthSmallestItem
 {
 	public class FindKthSmallestItemImplFacts
 	{

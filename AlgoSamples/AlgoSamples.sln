@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmitDuplicatesInTextFile", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trees", "Trees\Trees.csproj", "{4F82B55D-4CA0-4793-8C2A-B2BE65FE9DDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeAlgoSamples", "TreeAlgoSamples\TreeAlgoSamples.csproj", "{BE560AA6-F9DF-4875-A1BE-740991FEF6A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreesTests", "TreesTests\TreesTests.csproj", "{1EFC96A0-8FAE-45BE-9756-A42D64A50400}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,14 @@ Global
 		{4F82B55D-4CA0-4793-8C2A-B2BE65FE9DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F82B55D-4CA0-4793-8C2A-B2BE65FE9DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F82B55D-4CA0-4793-8C2A-B2BE65FE9DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE560AA6-F9DF-4875-A1BE-740991FEF6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE560AA6-F9DF-4875-A1BE-740991FEF6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE560AA6-F9DF-4875-A1BE-740991FEF6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE560AA6-F9DF-4875-A1BE-740991FEF6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EFC96A0-8FAE-45BE-9756-A42D64A50400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EFC96A0-8FAE-45BE-9756-A42D64A50400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EFC96A0-8FAE-45BE-9756-A42D64A50400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EFC96A0-8FAE-45BE-9756-A42D64A50400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

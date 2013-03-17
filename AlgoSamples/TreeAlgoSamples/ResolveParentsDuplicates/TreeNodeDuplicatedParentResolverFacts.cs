@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
+using TreeAlgoSamples.ResolveParentsDuplicates;
+using Trees;
 using Xunit;
 
-namespace Trees.ResolveParentsDuplicates
+namespace TreeAlgoSamples.ResolveParentsDuplicates
 {
 	public class TreeNodeDuplicatedParentResolverFacts
 	{

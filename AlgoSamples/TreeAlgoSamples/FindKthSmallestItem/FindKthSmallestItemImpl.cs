@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using Trees.ResolveParentsDuplicates;
+using TreeAlgoSamples.ResolveParentsDuplicates;
+using Trees;
 
-namespace Trees.FindKthSmallestItem
+namespace TreeAlgoSamples.FindKthSmallestItem
 {
 	public class FindKthSmallestItemImpl
 	{

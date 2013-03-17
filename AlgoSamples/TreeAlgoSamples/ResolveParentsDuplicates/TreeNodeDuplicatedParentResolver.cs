@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Trees;
 
-namespace Trees.ResolveParentsDuplicates
+namespace TreeAlgoSamples.ResolveParentsDuplicates
 {
 	public class TreeNodeDuplicatedParentResolver
 	{
